@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Module A on Praesidia</title>
+    <link>http://localhost:51326/module-a/</link>
+    <description>Recent content in Module A on Praesidia</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Jul 2025 18:21:29 -0600</lastBuildDate>
+    <atom:link href="http://localhost:51326/module-a/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Article 1</title>
+      <link>http://localhost:51326/module-a/article-1/</link>
+      <pubDate>Fri, 04 Jul 2025 18:21:29 -0600</pubDate>
+      <guid>http://localhost:51326/module-a/article-1/</guid>
+      <description>&lt;p&gt;This is the article: Article 1.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

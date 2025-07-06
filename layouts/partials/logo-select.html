@@ -1,0 +1,15 @@
+<div class="flex flex-shrink-0  items-center space-x-6">
+    <a href="/" class="text-3xl tracking-[0.2em] uppercase text-neutral-600 px-1" style="font-family: 'Rajdhani', sans-serif;">
+        {{ site.Title }}
+    </a>
+
+    <select
+            class="hidden md:inline-block w-[240px] border border-neutral-300 rounded px-2 py-1 text-xs sm:text-md text-neutral-500"
+            onchange="if(this.value) window.location.href=this.value"
+    >
+        <option value="">Go to Module</option>
+        {{ range site.Sections }}
+        <option value="{{ .RelPermalink }}">{{ .Title }}</option>
+        {{ end }}
+    </select>
+</div>

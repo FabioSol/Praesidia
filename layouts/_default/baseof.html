@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body class="min-h-screen flex flex-col bg-gray-50 text-gray-900">
+
+<!-- Top Bar -->
+<header class="w-full border-b border-gray-300 bg-white px-10 py-[6.5px] flex justify-between items-center">
+    {{ partial "logo-select.html" . }}
+    {{ partial "search-user.html" . }}
+</header>
+
+
+<!-- Main Content -->
+<main class="flex-1 p-4 bg-white">
+    {{ block "main" . }}{{ end }}
+</main>
+
+
+</body>
+</html>

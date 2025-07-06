@@ -1,0 +1,9 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Praesidia"
+
+[params]
+    userInitial = "F"
+
+[taxonomies]
+    project = "projects"

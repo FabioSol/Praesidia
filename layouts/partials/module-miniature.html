@@ -1,0 +1,17 @@
+<a href="{{ .RelPermalink }}"
+   class="flex flex-col items-center p-1 rounded hover:bg-neutral-100 transition module-link"
+   data-title="{{ .Title | lower }}">
+  <div class="flex items-center space-x-2">
+    <img src="{{ .Params.logo }}"
+         alt="{{ .Title }} logo"
+         class="w-6 h-6 object-contain" />
+    <div class="font-bold text-sm">
+      {{ .Title }}
+    </div>
+  </div>
+  <div class="flex pl-8 flex-col overflow-hidden">
+    <div class="font-light text-sm truncate">
+      {{ .Params.description }}
+    </div>
+  </div>
+</a>

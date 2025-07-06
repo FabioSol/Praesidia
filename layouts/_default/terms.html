@@ -1,0 +1,141 @@
+{{ define "main" }}
+<div id="mainTaxonomyContainer" class="w-full flex flex-col items-center">
+
+  <div class="w-full px-7 flex items-center justify-between">
+    <input type="text" id="moduleSearchInput" placeholder="Find Module"
+           class="border border-neutral-300 rounded px-2 py-1 text-xs sm:text-md sm:placeholder-md placeholder-neutral-500 text-neutral-500 w-56"
+    >
+    <span id="visibleModuleCount" class="ml-4 text-neutral-700 font-xs text-xs"></span>
+  </div>
+
+  {{/* Loop through each taxonomy kind (e.g., "categories", "tags", "domains") */}}
+  {{ range $taxonomyName, $terms := site.Taxonomies }}
+  <section class="w-full mb-12 px-1 taxonomy-kind-section">
+    {{/* CONDITIONAL DISPLAY OF TAXONOMY KIND TITLE */}}
+    {{ if gt (len site.Taxonomies) 1 }}
+    <h2 class="text-3xl font-semibold mb-6 pb-2 border-b-2 border-neutral-200">
+      {{ $taxonomyName | humanize | title }}
+    </h2>
+    {{ end }}
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+      {{/* Loop through each term within the current taxonomy kind (e.g., "Code" within "Domains") */}}
+      {{ range $terms.ByCount }}
+      <div class="bg-white p-6 rounded-lg flex flex-col term-card">
+        <div class="text-md font-bold text-neutral-800 mb-2">
+          {{ .Page.Title }}
+        </div>
+
+        <hr class="mb-2 border-t-1 border-neutral-300 w-full">
+
+        <div class="flex-grow flex flex-col space-y-1">
+          {{ $modules := .Pages.ByLastmod.Reverse }}
+
+          {{/* Display all modules for filtering purposes, but we will control visibility with JS */}}
+          {{ range $modules }}
+          {{ partial "module-miniature.html" . }}
+          {{ else }}
+          <p class="text-neutral-500 text-sm no-modules-msg hidden">No modules found for this term.</p>
+          {{ end }}
+
+          {{/* If there are more than 3 modules, show a "View All" link */}}
+          {{ if gt ($modules | len) 3 }}
+          <div class="mt-4 pt-2 border-t border-neutral-200 view-all-link">
+            <a href="{{ .Page.RelPermalink }}" class="text-sm font-medium text-indigo-600 hover:text-indigo-800">
+              View all {{ .Count }} modules in {{ .Page.Title }} &rarr;
+            </a>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainTaxonomyContainer = document.getElementById('mainTaxonomyContainer');
+    const searchInput = document.getElementById('moduleSearchInput');
+    const visibleModuleCountSpan = document.getElementById('visibleModuleCount');
+
+    const taxonomyKindSections = document.querySelectorAll('.taxonomy-kind-section');
+    const termCards = document.querySelectorAll('.term-card');
+    const moduleLinks = document.querySelectorAll('.module-link');
+
+    const totalModuleCount = moduleLinks.length;
+
+    const updateVisibleCount = (currentVisibleCount) => {
+      visibleModuleCountSpan.textContent = `${currentVisibleCount} of ${totalModuleCount} Modules`;
+    };
+
+    const filterModules = () => {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      let overallVisibleModuleCount = 0;
+      let anyTaxonomyKindVisible = false;
+
+      taxonomyKindSections.forEach(taxonomySection => {
+        let taxonomyKindHasVisibleTerms = false;
+        const termCardsInKind = taxonomySection.querySelectorAll('.term-card');
+
+        termCardsInKind.forEach(termCard => {
+          const moduleLinksInCard = termCard.querySelectorAll('.module-link');
+          const noModulesMsgInCard = termCard.querySelector('.no-modules-msg');
+          const viewAllLinkInCard = termCard.querySelector('.view-all-link');
+          let termCardHasVisibleModules = false;
+
+          if (moduleLinksInCard.length > 0) {
+            moduleLinksInCard.forEach(link => {
+              const moduleTitle = link.dataset.title;
+              if (moduleTitle.includes(searchTerm)) {
+                link.style.display = 'block';
+                termCardHasVisibleModules = true;
+                overallVisibleModuleCount++;
+              } else {
+                link.style.display = 'none';
+              }
+            });
+
+            if (noModulesMsgInCard) {
+              noModulesMsgInCard.style.display = 'none';
+            }
+
+            if (viewAllLinkInCard) {
+              viewAllLinkInCard.style.display = (searchTerm === '' && moduleLinksInCard.length > 3) ? 'block' : 'none';
+            }
+
+            if (termCardHasVisibleModules) {
+              termCard.style.display = 'flex';
+              taxonomyKindHasVisibleTerms = true;
+            } else {
+              termCard.style.display = 'none';
+            }
+
+          } else {
+            termCard.style.display = 'none';
+          }
+        });
+
+        if (taxonomyKindHasVisibleTerms) {
+          taxonomySection.style.display = 'block';
+          anyTaxonomyKindVisible = true;
+        } else {
+          taxonomySection.style.display = 'none';
+        }
+      });
+
+      const taxonomySectionsWrapper = document.querySelectorAll('.taxonomy-kind-section');
+      taxonomySectionsWrapper.forEach(section => {
+        section.style.display = anyTaxonomyKindVisible ? 'block' : 'none';
+      });
+
+      updateVisibleCount(overallVisibleModuleCount);
+    };
+
+    searchInput.addEventListener('input', filterModules);
+
+    filterModules();
+  });
+</script>
+{{ end }}
