@@ -2,9 +2,11 @@
    class="flex flex-col items-center p-1 rounded hover:bg-neutral-100 transition module-link"
    data-title="{{ .Title | lower }}">
   <div class="flex items-center space-x-2">
-    <img src="{{ .Params.logo }}"
-         alt="{{ .Title }} logo"
+    {{ with .Params.logo }}
+    <img src="{{ . | relURL }}"
+         alt="{{ $.Title }} logo"
          class="w-6 h-6 object-contain" />
+    {{ end }}
     <div class="font-bold text-sm">
       {{ .Title }}
     </div>

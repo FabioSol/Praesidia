@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code on Praesidia</title>
-    <link>http://localhost:51326/projects/code/</link>
+    <link>http://localhost:51792/Praesidia/projects/code/</link>
     <description>Recent content in Code on Praesidia</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 Jul 2025 18:18:16 -0600</lastBuildDate>
-    <atom:link href="http://localhost:51326/projects/code/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:51792/Praesidia/projects/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Module B</title>
-      <link>http://localhost:51326/module-b/</link>
+      <link>http://localhost:51792/Praesidia/module-b/</link>
       <pubDate>Fri, 04 Jul 2025 18:18:16 -0600</pubDate>
-      <guid>http://localhost:51326/module-b/</guid>
+      <guid>http://localhost:51792/Praesidia/module-b/</guid>
       <description>&lt;p&gt;Welcome to Module B.!&lt;/p&gt;</description>
     </item>
   </channel>

@@ -6,7 +6,7 @@ draft: false
 projects: 
   - "Code"
 description: "this is module b description"
-logo: "/images/logos/default-logo.png"
+logo: "images/logos/default-logo.png"
 ---
 
 Welcome to Module B.!

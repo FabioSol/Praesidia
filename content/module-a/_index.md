@@ -6,7 +6,7 @@ draft: false
 projects:
   - "Culture"
 description: "this is module a description"
-logo: "/images/logos/default-logo.png"
+logo: "images/logos/default-logo.png"
 ---
 
 Welcome to Module A.
