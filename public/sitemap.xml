@@ -2,28 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://fabiosol.github.io/Praesidia/module-a/article-2/sub-article/</loc>
+    <loc>http://localhost:53962/Praesidia/module-a/article-2/sub-article/</loc>
     <lastmod>2025-07-04T18:21:44-06:00</lastmod>
   </url><url>
-    <loc>https://fabiosol.github.io/Praesidia/module-a/article-1/</loc>
+    <loc>http://localhost:53962/Praesidia/module-a/article-1/</loc>
     <lastmod>2025-07-04T18:21:29-06:00</lastmod>
   </url><url>
-    <loc>https://fabiosol.github.io/Praesidia/module-a/article-2/</loc>
+    <loc>http://localhost:53962/Praesidia/module-a/article-2/</loc>
     <lastmod>2025-07-04T18:21:23-06:00</lastmod>
   </url><url>
-    <loc>https://fabiosol.github.io/Praesidia/projects/culture/</loc>
+    <loc>http://localhost:53962/Praesidia/projects/culture/</loc>
     <lastmod>2025-07-04T18:19:28-06:00</lastmod>
   </url><url>
-    <loc>https://fabiosol.github.io/Praesidia/module-a/</loc>
+    <loc>http://localhost:53962/Praesidia/module-a/</loc>
     <lastmod>2025-07-04T18:19:28-06:00</lastmod>
   </url><url>
-    <loc>https://fabiosol.github.io/Praesidia/projects/</loc>
+    <loc>http://localhost:53962/Praesidia/projects/</loc>
     <lastmod>2025-07-04T18:19:28-06:00</lastmod>
   </url><url>
-    <loc>https://fabiosol.github.io/Praesidia/projects/code/</loc>
+    <loc>http://localhost:53962/Praesidia/projects/code/</loc>
     <lastmod>2025-07-04T18:18:16-06:00</lastmod>
   </url><url>
-    <loc>https://fabiosol.github.io/Praesidia/module-b/</loc>
+    <loc>http://localhost:53962/Praesidia/module-b/</loc>
     <lastmod>2025-07-04T18:18:16-06:00</lastmod>
+  </url><url>
+    <loc>http://localhost:53962/Praesidia/</loc>
+    <lastmod>2025-07-03T13:37:27-06:00</lastmod>
   </url>
 </urlset>

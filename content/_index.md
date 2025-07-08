@@ -1,6 +1,6 @@
 ---
-date: 2025-07-03T13:37:27-06:00
-draft: true
+title: "Redirect"
+layout: "redirect"
 ---
 
 Welcome to my site! Here's an intro paragraph.
