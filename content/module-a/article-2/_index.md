@@ -6,4 +6,6 @@ weight: 10
 draft: false
 ---
 
-This is the article: Article 2.
+# Hello A2
+
+This is **bold** text.

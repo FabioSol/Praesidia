@@ -1,6 +1,15 @@
 {{ define "main" }}
-<h1 class="text-2xl font-bold">{{ .Title }}</h1>
-<article class="prose mt-4">
-    {{ .Content }}
-</article>
+<div class="flex h-full">
+    <!-- Sidebar -->
+    <aside class="w-64 h-full border-r border-gray-200 p-2">
+        {{ partial "nav-bar.html" . }}
+    </aside>
+
+    <!-- Scrollable Content Area -->
+    <section class="flex-1 overflow-y-auto p-6">
+        <div class="content-area">
+            {{ .Content }}
+        </div>
+    </section>
+</div>
 {{ end }}

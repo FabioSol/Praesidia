@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div id="mainTaxonomyContainer" class="w-full flex flex-col items-center">
+<div id="mainTaxonomyContainer" class="w-full m-4 mt-6 flex flex-col items-center">
 
   <div class="w-full px-7 flex items-center justify-between">
     <input type="text" id="moduleSearchInput" placeholder="Find Module"
@@ -21,7 +21,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
       {{/* Loop through each term within the current taxonomy kind (e.g., "Code" within "Domains") */}}
       {{ range $terms.ByCount }}
-      <div class="bg-white p-6 rounded-lg flex flex-col term-card">
+      <div class="bg-white p-6 pt-3 rounded-lg flex flex-col term-card">
         <div class="text-md font-bold text-neutral-800 mb-2">
           {{ .Page.Title }}
         </div>

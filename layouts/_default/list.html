@@ -1,9 +1,14 @@
 {{ define "main" }}
-<h1 class="text-2xl font-bold">{{ .Title }}</h1>
-{{ .Content }}
-<ul class="mt-4 list-disc list-inside">
-    {{ range .Pages }}
-    <li><a href="{{ .RelPermalink }}" class="text-blue-600 hover:underline">{{ .Title }}</a></li>
-    {{ end }}
-</ul>
+<div class="flex h-full">
+    <!-- Sidebar -->
+    <aside class="w-64 h-full border-r border-gray-200 p-2">
+        {{ partial "nav-bar.html" . }}
+    </aside>
+
+    <!-- Scrollable Content Area -->
+    <section class="flex-1 overflow-y-auto px-16 py-10">
+        {{ partial "content-area.html" . }}
+    </section>
+</div>
 {{ end }}
+

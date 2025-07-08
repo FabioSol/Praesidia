@@ -1,0 +1,24 @@
+
+<div class="flex flex-col h-full">
+  <!-- Top: auto height with min height -->
+  <a href="{{ .Page.FirstSection.RelPermalink }}" class="min-h-[120px] border-b border-neutral-200 flex flex-col items-center justify-center space-y-2 px-3 py-1">
+    {{ with .Page.FirstSection.Params.logo }}
+    <img src="{{ . | relURL }}"
+         alt="{{ $.Title }} logo"
+         class="w-full max-h-16 object-contain" />
+    {{ end }}
+    <div class="text-xl font-medium text-center text-neutral-700">
+      {{ .Page.FirstSection.Title }}
+    </div>
+  </a>
+
+  <!-- Middle: grows to fill remaining space, scrollable -->
+  <div class="flex-grow p-2">
+    {{ partial "nav.html" (dict "Pages" .Page.FirstSection.Pages "Parent" .) }}
+  </div>
+
+  <!-- Bottom: fixed height -->
+  <div class="h-10 border-t border-neutral-200">
+    <!-- Footer content -->
+  </div>
+</div>

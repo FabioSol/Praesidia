@@ -1,2 +1,18 @@
 @import "tailwindcss";
 @source "hugo_stats.json";
+
+.content-area h1 {
+    @apply text-3xl font-light mb-4 text-neutral-700;
+}
+
+.content-area h2 {
+    @apply text-2xl font-light mb-3 text-neutral-700;
+}
+
+.content-area h3 {
+    @apply text-xl font-light mb-2 text-neutral-700;
+}
+
+.content-area p {
+    @apply mb-4 text-neutral-700;
+}
